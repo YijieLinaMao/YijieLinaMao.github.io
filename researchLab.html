@@ -25,7 +25,7 @@
         width: 250px;
         height: 180px;
         border-radius: 15px;
-        overflow: visible; /* 关键：允许放大超出容器 */
+        overflow: visible; 
         position: relative;
         transition: transform 0.3s ease;
     }
@@ -40,22 +40,31 @@
         cursor: pointer;
     }
     
-    /* 关键：悬停时图片放大且浮在最上层 */
     .zoom-card:hover {
         z-index: 10;
     }
     
     .zoom-card:hover img {
-        transform: scale(3); /* 放大1.4倍 */
+        transform: scale(3); 
         box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     }
     
-    /* 添加图片描述 */
     .image-caption {
         text-align: center;
         margin-top: 15px;
         font-weight: 500;
         color: #333;
+
+     img {
+    max-width: 100%;        /* 确保图片不溢出 */
+    height: auto;
+    display: block;         /* 消除图片底部的间隙 */
+    }
+
+   .over {
+    padding: 10px 0;        /* 给文字预留空间 */
+    position: relative;     /* 确保它按照文档流排列，而不是浮在图片上 */
+   }
     }
 </style>
 
