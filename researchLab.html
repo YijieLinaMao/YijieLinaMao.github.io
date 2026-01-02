@@ -19,13 +19,14 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         background: #f8f9fa;
+
+        align-items: flex-start; 
+        min-height: 500px;
     }
     
     .zoom-card {
         width: 250px;
-        height: 180px;
-        border-radius: 15px;
-        overflow: visible; 
+        margin-bottom: 40px; 
         position: relative;
         transition: transform 0.3s ease;
     }
@@ -54,17 +55,45 @@
         margin-top: 15px;
         font-weight: 500;
         color: #333;
-
-     img {
-    max-width: 100%;       
-    height: auto;
-    display: block;         
     }
 
-   .over {
-    padding: 10px 0;        
-    position: relative;     
-   }
+  .caption {
+        position: absolute; /* 改为绝对定位 */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 12px 15px;
+        text-align: center;
+        font-size: 14px;
+        transform: translateY(100%); /* 默认隐藏 */
+        transition: all 0.4s ease;
+        z-index: 3;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    /* 关键：换行时避免遮挡 */
+    .gallery-item:hover {
+        transform: scale(1.1);
+        z-index: 100; /* 确保在最上层 */
+    }
+    
+    /* 显示caption并调整位置 */
+    .gallery-item:hover .caption {
+        transform: translateY(0); /* 显示 */
+        background: rgba(44, 62, 80, 0.9); /* 更深的背景 */
+    }
+    
+    /* 为放大的图片创建空间 */
+    .gallery-item:hover::after {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -50px; /* 为caption留出额外空间 */
+        z-index: -1; /* 在背景层 */
     }
 </style>
 
