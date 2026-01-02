@@ -7,46 +7,54 @@
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .image-container {
-            width: 300px;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            cursor: zoom-in;
-        }
-        
-        .zoom-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        /* 鼠标悬停时放大 */
-        .image-container:hover .zoom-image {
-            transform: scale(1.2); /* 放大1.2倍 */
-        }
-        
-        /* 可选：添加悬停提示文字 */
-        .image-container::after {
-            content: "鼠标悬停放大";
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .image-container:hover::after {
-            opacity: 1;
-        }
-    </style>
+
+<style>
+    .gallery-container {
+        display: flex;
+        gap: 20px;
+        padding: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #f8f9fa;
+    }
+    
+    .zoom-card {
+        width: 250px;
+        height: 180px;
+        border-radius: 15px;
+        overflow: visible; /* 关键：允许放大超出容器 */
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+    
+    .zoom-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+    
+    /* 关键：悬停时图片放大且浮在最上层 */
+    .zoom-card:hover {
+        z-index: 10;
+    }
+    
+    .zoom-card:hover img {
+        transform: scale(3); /* 放大1.4倍 */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+    
+    /* 添加图片描述 */
+    .image-caption {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: 500;
+        color: #333;
+    }
+</style>
 
 <link rel="shortcut icon" href="favicon.ico">
         <!--CSS styles-->
@@ -391,30 +399,10 @@ Haobo Huang
 </table>
 
 
-            <div id="main">
-            
-                <div id="gallery" class="page">
-                    <div class="pagecontents">
-                        
 
-                        <div class="section pageheader" id="gallery-header">
-                            <div class="section-container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h2>Gallery</h2>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <!-- <p>PEARL pictures.</p> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="section color-1" id="gallery-large">
-                            <div class="section-container">
+<div class="gallery-container">
                                 
-                                <ul id="grid" class="grid">
-    <div class="image-container">
+    <div class="zoom-card">
         <img alt="ICC2025" src="ICC2025.jpg" height="250px" class="zoom-image">
         <a href="ICC2025.jpg" class="popup-with-move-anim">
             <div class="over">
@@ -427,7 +415,7 @@ Haobo Huang
         </a>
     </div>
 
-<div>
+<div class="zoom-card">
         <img alt="ICC2025" src="ICC2025-xiaohua.jpg" height="250px" >
         <a href="ICC2025-xiaohua.jpg" class="popup-with-zoom-anim">
             <div class="over">
@@ -439,7 +427,7 @@ Haobo Huang
             </div>
         </a>
     </div>
- <div>
+ <div class="zoom-card">
         <img alt="ICC2025" src="ICC2025-zhengqing.jpg" height="250px" >
         <a href="ICC2025-zhengqing.jpg" class="popup-with-zoom-anim">
             <div class="over">
@@ -451,15 +439,8 @@ Haobo Huang
             </div>
         </a>
     </div>
-                                
-                                </ul>
-                                    
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-              </div>
+    </div>
+
   
 <h2>Join us</h2>
 <dl>
