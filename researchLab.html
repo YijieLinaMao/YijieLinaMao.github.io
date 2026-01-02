@@ -95,6 +95,25 @@
         bottom: -50px; /* 为caption留出额外空间 */
         z-index: -1; /* 在背景层 */
     }
+
+    .gallery-title {
+        margin-bottom: 30px; /* 增加下边距 */
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    
+    /* 间距元素 */
+    .spacer {
+        height: 20px; /* 控制间距高度 */
+    }
+    
+    /* 或者使用伪元素 */
+    .gallery-title::after {
+        content: '';
+        display: block;
+        height: 20px;
+    }
+
 </style>
 
 <link rel="shortcut icon" href="favicon.ico">
@@ -360,7 +379,7 @@ Haobo Huang
 
 <div class="gallery-container">  
 <h3 class="gallery-title">2025</h3>
-<div class="title-divider"></div>
+<div class="spacer"></div>
 <div class="zoom-card">
     <img alt="Bruno" src="Bruno2025.jpg" height="250px" class="zoom-image">
     <div class="image-caption"><h4>Dec. 2025 in ShanghaiTech (Welcome Prof. Bruno Clerckx to give a distinguished colloquium!) </h4></div> 
@@ -392,7 +411,7 @@ Haobo Huang
 </div>
 
 <div class="gallery-container">  
-<h3 class="gallery-title">2024</h3>
+<h3 class="spacer">2024</h3>
 <div class="title-divider"></div>
 <div class="zoom-card">
     <img alt="Happy Gathering" src="gathering202412.jpg" height="250px" class="zoom-image">
@@ -413,7 +432,7 @@ Haobo Huang
 </div>
 
 <div class="gallery-container">  
-<h3 class="gallery-title">2022-2023</h3>
+<h3 class="spacer">2022-2023</h3>
 <div class="title-divider"></div>
 <div class="zoom-card">
     <img alt="Happy Gathering" src="gathering202311.jpg" height="250px" class="zoom-image">
